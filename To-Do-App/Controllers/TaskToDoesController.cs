@@ -41,10 +41,13 @@ namespace To_Do_App.Controllers
         public async Task<IActionResult> SearchResult(string SearchPhrase)
            
         {
-            return View("Index", await _context.TaskToDo.Where(t => t.Task.Contains(SearchPhrase)).ToListAsync());
-            /*:*/
+            var resl = await _context.TaskToDo.Where(t => t.Task.Contains(SearchPhrase)).ToListAsync();
+            if (resl != null) { return View("Index", resl); }
+          
             //Problem("Entity set 'ApplicationDbContext.TaskToDo'  is null.");
             //_context.TaskToDo != null ?
+            //else{
+            return View("Index1");
         }
         // GET: TaskToDoes/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -65,7 +68,7 @@ namespace To_Do_App.Controllers
         }
 
         // GET: TaskToDoes/Create
-        [Authorize]
+        //[Authorize]
         public IActionResult Create()
         {
             return View();

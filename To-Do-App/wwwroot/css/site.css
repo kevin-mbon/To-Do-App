@@ -16,3 +16,13 @@ html {
 body {
   margin-bottom: 60px;
 }
+.text-center{
+   
+}
+.remove-line {
+    text-decoration: none;
+    margin: 20px;
+}
+.container{
+    color :rebeccapurple;
+}

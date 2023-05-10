@@ -4,7 +4,7 @@
 
 namespace To_Do_App.Data.Migrations
 {
-    public partial class initialsetup : Migration
+    public partial class initialsetup2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
