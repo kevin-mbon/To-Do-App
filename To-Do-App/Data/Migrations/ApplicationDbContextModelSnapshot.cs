@@ -248,7 +248,7 @@ namespace To_Do_App.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TaskToDo");
+                    b.ToTable("TaskToDo", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

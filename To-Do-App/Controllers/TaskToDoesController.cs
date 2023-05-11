@@ -42,12 +42,13 @@ namespace To_Do_App.Controllers
            
         {
             var resl = await _context.TaskToDo.Where(t => t.Task.Contains(SearchPhrase)).ToListAsync();
-            if (resl != null) { return View("Index", resl); }
-          
+            if (resl != null) { }
+
             //Problem("Entity set 'ApplicationDbContext.TaskToDo'  is null.");
             //_context.TaskToDo != null ?
-            //else{
-            return View("Index1");
+            ////else{
+            //return View("Index1");
+            return View("Index", resl);
         }
         // GET: TaskToDoes/Details/5
         public async Task<IActionResult> Details(int? id)
