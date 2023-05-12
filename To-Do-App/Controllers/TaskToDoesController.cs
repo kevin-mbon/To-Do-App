@@ -23,9 +23,9 @@ namespace To_Do_App.Controllers
         // GET: TaskToDoes
         public async Task<IActionResult> Index()
         {
-              return _context.TaskToDo != null ?
-                          View(await _context.TaskToDo.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.TaskToDo'  is null.");
+            return _context.TaskToDo != null ?
+                          View(await _context.TaskToDo.ToListAsync()):
+                        Problem("Entity set 'ApplicationDbContext.TaskToDo'  is null.");
         }
         //Get: Search form
         public async Task<IActionResult> CallSearchForm()
