@@ -12,8 +12,8 @@ using To_Do_App.Data;
 namespace To_Do_App.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230509203450_[initialsetup2]")]
-    partial class initialsetup2
+    [Migration("20230513151433_DeletePartner")]
+    partial class DeletePartner
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

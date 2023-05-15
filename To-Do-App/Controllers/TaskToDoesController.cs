@@ -24,7 +24,7 @@ namespace To_Do_App.Controllers
         public async Task<IActionResult> Index()
         {
             return _context.TaskToDo != null ?
-                          View(await _context.TaskToDo.ToListAsync()):
+                          View(await _context.TaskToDo.ToListAsync()) :
                         Problem("Entity set 'ApplicationDbContext.TaskToDo'  is null.");
         }
         //Get: Search form
@@ -80,7 +80,7 @@ namespace To_Do_App.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Task,Description")] TaskToDo taskToDo)
+        public async Task<IActionResult> Create([Bind("Id,Task,Description,EndingTime,EndingTime")] TaskToDo taskToDo)
         {
             if (ModelState.IsValid)
             {
@@ -112,7 +112,7 @@ namespace To_Do_App.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Task,Description")] TaskToDo taskToDo)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Task,Description,StartingTime,EndingTime")] TaskToDo taskToDo)
         {
             if (id != taskToDo.Id)
             {
