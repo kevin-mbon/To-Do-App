@@ -22,9 +22,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Task)
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Task)
+                </td>
             <td>
                     <a class="remove-line" asp-action="Details" asp-route-id="@item.Id">Description</a> |
                     <a class="remove-line btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id">
