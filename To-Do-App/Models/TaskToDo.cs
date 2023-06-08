@@ -13,8 +13,8 @@ namespace To_Do_App.Models
         public DateTime? EndingTime { get; set; } = null!;
         public TaskToDo()
         {
-            //StartingTime = DateTime.Now;
-            //EndingTime = DateTime.Now;  
+            StartingTime = DateTime.Now;
+            EndingTime = DateTime.Now;
         }
 
 

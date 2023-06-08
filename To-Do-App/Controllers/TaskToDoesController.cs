@@ -47,6 +47,12 @@ namespace To_Do_App.Controllers
             
             return View("Index", resl);
         }
+        //Alarm for task
+        public async Task<IActionResult> Alarm(string endingTime)
+        {
+            var result = await _context.TaskToDo.Where(t => t.Task.Contains(endingTime)).ToListAsync();
+            return View("Index",result);
+        }
         // GET: TaskToDoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
