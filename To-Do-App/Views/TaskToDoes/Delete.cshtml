@@ -8,7 +8,6 @@
 
 <h3>Make sure you are deleting Completed task?</h3>
 <div>
-    <h4>TaskToDo</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -20,12 +19,26 @@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Description)
         </dt>
-      
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StartingTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StartingTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EndingTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EndingTime)
+        </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a class="remove-line" asp-action="Index">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-danger"  /> |
+        <a class="btn btn-outline-secondary" asp-action="Index">Back to List</a>
     </form>
 </div>

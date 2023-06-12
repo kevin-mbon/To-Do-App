@@ -4,14 +4,13 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create Task</h1>
 
-<h4>TaskToDo</h4>
-<hr />
+<h1>Create Task</h1>
+<hr /> 
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Task" class="control-label"></label>
                 <input asp-for="Task" class="form-control" />
@@ -43,5 +42,5 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <partial name="_ValidationScriptsPartial" />
 }

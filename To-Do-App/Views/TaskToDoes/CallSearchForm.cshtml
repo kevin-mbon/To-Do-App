@@ -5,22 +5,22 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="SearchResult">
-           @* <div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
           
             <div class="form-group">
                 <label for="SearchPhrase" class="control-label"></label>
                 <input name ="SearchPhrase" class="form-control" />
                
             </div>
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <input type="submit" value="Search" class="btn btn-primary" />
+                <a class="btn btn-outline-dark" asp-action="Index">Back to List</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a class="remove-line" asp-action="Index">Back to List</a>
-</div>
+
+    
+
 
 

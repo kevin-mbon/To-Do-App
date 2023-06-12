@@ -42,10 +42,13 @@ namespace To_Do_App.Controllers
            
         {
             var resl = await _context.TaskToDo.Where(t => t.Task.Contains(SearchPhrase)).ToListAsync();
-            if (resl != null) { }
-
+            var resl2 = "Task not found";
+            if (resl != null) {
+                return View("Index",resl);
+            }
+            return View("Index", resl2);
             
-            return View("Index", resl);
+           
         }
         //Alarm for task
         public async Task<IActionResult> Alarm(string endingTime)
@@ -85,16 +88,22 @@ namespace To_Do_App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Task,Description,EndingTime,EndingTime")] TaskToDo taskToDo)
         {
+            if(taskToDo.Task == taskToDo.Description.ToString())
+            {
+                ModelState.AddModelError("CustomError", "task and discription cannot have some charcter value");
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(taskToDo);
                 await _context.SaveChangesAsync();
+                TempData["success"] = "Task created successfully";
                 return RedirectToAction(nameof(Index));
             }
             return View(taskToDo);
         }
 
         // GET: TaskToDoes/Edit/5
+        //[Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.TaskToDo == null)
@@ -128,6 +137,7 @@ namespace To_Do_App.Controllers
                 {
                     _context.Update(taskToDo);
                     await _context.SaveChangesAsync();
+                    TempData["success"] = "Task updated successfully";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -146,6 +156,7 @@ namespace To_Do_App.Controllers
         }
 
         // GET: TaskToDoes/Delete/5
+        //[Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.TaskToDo == null)
@@ -166,6 +177,7 @@ namespace To_Do_App.Controllers
         // POST: TaskToDoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.TaskToDo == null)
@@ -179,6 +191,7 @@ namespace To_Do_App.Controllers
             }
             
             await _context.SaveChangesAsync();
+            TempData["success"] = "Task deleted successfully";
             return RedirectToAction(nameof(Index));
         }
 

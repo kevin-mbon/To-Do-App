@@ -27,5 +27,8 @@ body {
     font-size: medium;
 }
 .container{
-    color : white;
+    color : black;
+}
+.container1 {
+    color: white;
 }
